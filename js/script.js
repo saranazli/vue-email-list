@@ -8,7 +8,7 @@ createApp ({
 
       title : 'Axios Email',
       apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail',
-      mail : []
+      mails : []
 
     }
 
@@ -18,22 +18,20 @@ createApp ({
 
     getApi(){
 
-      axios.get(this.apiUrl)
-      .then((risp) =>{
+      for ( let i = 0 ; i < 10; i++){
 
-        //this.mail = risp.data.response
-        //console.log(this.mail)
+        axios.get(this.apiUrl)
+        .then((risp) =>{
+  
+          this.mails.push(risp.data.response)
+          console.log(this.mails)
+          
+        })
+        .catch((error) => {
+          console.log(error);
+        })
 
-        for ( let mail in risp.data){
-          //console.log(mail)
-          console.log(risp.data.response)
-          this.mail.push(risp.data.response)
-        }
-        
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+      }
 
     }
 
