@@ -21,20 +21,18 @@ createApp ({
 
       for ( let i = 0 ; i < 10; i++){
 
-        this.counter++
-        
         axios.get(this.apiUrl)
         .then((risp) =>{
-
-          if(this.counter === 10 ){
-            this.mails.push(risp.data.response)
-            console.log(this.mails)
-          }
+          
+          this.mails.push(risp.data.response)
+          console.log(this.mails)
           
         })
         .catch((error) => {
           console.log(error);
         })
+
+        this.counter++
 
       }
 

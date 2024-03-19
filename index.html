@@ -25,7 +25,7 @@
     <div class="container m-5">
       <h1>{{title}}</h1>
       <ul>
-        <li v-for="mail in mails">{{mail}}</li>
+        <li v-for="mail in mails" v-if="counter = 10">{{mail}}</li>
       </ul>
     </div>
     
