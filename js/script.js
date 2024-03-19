@@ -8,7 +8,8 @@ createApp ({
 
       title : 'Axios Email',
       apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail',
-      mails : []
+      mails : [],
+      counter : 0 
 
     }
 
@@ -20,11 +21,15 @@ createApp ({
 
       for ( let i = 0 ; i < 10; i++){
 
+        this.counter++
+        
         axios.get(this.apiUrl)
         .then((risp) =>{
-  
-          this.mails.push(risp.data.response)
-          console.log(this.mails)
+
+          if(this.counter === 10 ){
+            this.mails.push(risp.data.response)
+            console.log(this.mails)
+          }
           
         })
         .catch((error) => {
@@ -32,6 +37,8 @@ createApp ({
         })
 
       }
+
+       
 
     }
 
